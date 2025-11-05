@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Tarefa</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Nova Tarefa</h1>
+
+<form th:object="${tarefa}" th:action="@{/novaTarefa}" method="post">
+    <label>Título:</label>
+    <input type="text" th:field="*{titulo}" required><br>
+    <label>Descrição:</label>
+    <textarea th:field="*{descricao}"></textarea><br>
+    <button type="submit">Salvar</button>
+</form>
+
+<a th:href="@{/index}">Voltar</a>
+
+    <footer>
+        <p>© 2025 - Sistema de Lista de Tarefas | Desenvolvido com 💻 por Júlio</p>
+    </footer>
+</body>
+</html>

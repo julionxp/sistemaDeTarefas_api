@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet"  th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Minhas Tarefas</h1>
+
+<a th:href="@{/novaTarefa}">Adicionar Tarefa</a>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="tarefa : ${tarefas}">
+            <td th:text="${tarefa.titulo}"></td>
+            <td th:text="${tarefa.descricao}"></td>
+            <td th:text="${tarefa.status} ? 'Concluída' : 'Pendente'"></td>
+
+            <td>
+                <a th:href="@{/editar/{id}(id=${tarefa.id})}">Editar</a>
+                <a th:href="@{'/deletar/' + ${tarefa.id}}">Excluir</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+    <footer>
+        <p>© 2025 - Sistema de Lista de Tarefas | Desenvolvido com 💻 por Júlio</p>
+    </footer>
+
+</body>
+</html>
